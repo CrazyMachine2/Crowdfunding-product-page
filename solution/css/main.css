@@ -1,0 +1,70 @@
+:root {
+    --clr-primary-400: #3CB4AC;
+    --clr-primary-600: #147B74;
+
+    --clr-neutral-100: #ffffff;
+    --clr-neutral-400: #7A7A7A;
+    --clr-neutral-900: #000000;
+
+    --ff-primary: 'Commissioner', sans-serif;
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --fw-bolder: 900;
+
+    --line-height-smaller: 1;
+    --line-height-small: 1.25;
+    --line-height-regular: 1.6;
+    --line-height-large: 2;
+}
+
+
+/*typography*/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:  var(--ff-primary);
+    font-weight: var(--fw-regular);
+    font-size: 1rem;
+    line-height: var(--line-height-regular);
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-weight: var(--fw-bold);
+    line-height: var(--line-height-small);
+}
+
+img {
+    display: block;
+}
+
+/* layout */
+.container {
+    margin: 0 auto;
+    width: min(90%, 45rem);
+}
+
+.container--wide {
+    width: min(90%, 70rem);
+}
+
+section {
+    padding: 2rem;
+    background-color: blue;
+}
+
+/*util*/
+.text-center {
+    text-align: center;
+}
