@@ -1,0 +1,42 @@
+header {
+    padding: 1rem 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: none;
+}
+
+.navbar-list {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navbar-list li {
+    list-style: none;
+    transition: transform .2s;
+}
+
+.navbar-list li:hover {
+    transform: scale(1.1);
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: var(--clr-neutral-100)
+}
+
+
+@media(min-width: 600px) {
+    .nav-responsive {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+    }
+}
