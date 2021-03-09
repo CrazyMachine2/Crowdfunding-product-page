@@ -1,0 +1,55 @@
+header {
+    height: 25vh;
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 1444px;
+    background-image: url("../../images/image-hero-mobile.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: none;
+}
+
+.navbar-list {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navbar-list li {
+    list-style: none;
+    transition: transform .2s;
+}
+
+.navbar-list li:hover {
+    transform: scale(1.1);
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: var(--clr-neutral-100)
+}
+
+
+@media(min-width: 600px) {
+    .nav-responsive {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+    }
+}
+
+@media(min-width: 800px) {
+    header {
+        background-image: url("../../images/image-hero-desktop.jpg");
+    }
+}
