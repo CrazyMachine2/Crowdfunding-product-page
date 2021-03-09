@@ -1,5 +1,12 @@
 header {
+    height: 25vh;
     padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 1444px;
+    background-image: url("../../images/image-hero-mobile.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .navbar-container {
@@ -38,5 +45,11 @@ header {
 
     .navbar {
         display: block;
+    }
+}
+
+@media(min-width: 800px) {
+    header {
+        background-image: url("../../images/image-hero-desktop.jpg");
     }
 }
