@@ -3,6 +3,10 @@
 @import url("./buttons.css");
 @import url("./utils.css");
 
+/* =================
+       General
+   ================= 
+*/
 
 :root {
     --clr-primary-400: #3CB4AC;
@@ -26,8 +30,6 @@
 }
 
 
-/*typography*/
-
 body {
     font-family:  var(--ff-primary);
     font-weight: var(--fw-regular);
@@ -35,6 +37,11 @@ body {
     line-height: var(--line-height-regular);
     background-color: var(--clr-neutral-150);
 }
+
+/* =================
+       Typography
+   ================= 
+*/
 
 h1,
 h2 {
@@ -47,13 +54,20 @@ h1 {
 
 p {
     color: var(--clr-neutral-400);
-    font-size: clamp(.8rem, 1vh, 1rem);
+    font-size: .8rem;
     margin-bottom: 1rem;
 }
 
 img {
     display: block;
     width: auto;
+}
+
+
+@media(min-width: 600px) {
+    p {
+        font-size: .9rem;
+    }
 }
 
 /* =================
@@ -212,6 +226,11 @@ main .container {
 
 .left {
     margin-bottom: 1rem;
+}
+
+.out-of-stock {
+    opacity: .5;
+    pointer-events: none;
 }
 
 .small-text {

@@ -46,9 +46,19 @@
 }
 
 .btn-default:hover {
-    background-color: var(--clr-neutral-400);
+    background-color: var(--clr-neutral-200);
     color: var(--clr-neutral-100);
 }
+
+.btn-disabled {
+    pointer-events: none;
+}
+
+.is-bookmarked,
+.is-bookmarked:hover {
+    color: var(--clr-primary-400);
+}
+
 
 @media(min-width: 600px){
     .btn-with-image {
