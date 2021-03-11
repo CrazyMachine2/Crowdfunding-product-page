@@ -5,3 +5,22 @@
 .text-right {
     text-align: right;
 }
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.text-color-primary {
+    color: var(--clr-primary-400);
+}
+
+/* Flexbox */
+
+.d-flex {
+    display: flex;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
