@@ -59,6 +59,9 @@
     color: var(--clr-primary-400);
 }
 
+.close-btn {
+    cursor: pointer;
+}
 
 @media(min-width: 600px){
     .btn-with-image {

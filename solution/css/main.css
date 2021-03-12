@@ -2,6 +2,8 @@
 @import url("./navbar.css");
 @import url("./buttons.css");
 @import url("./utils.css");
+@import url("./modal.css");
+@import url("./inputs.css");
 
 /* =================
        General
@@ -218,6 +220,10 @@ main .container {
 .reward-header {
     flex-wrap: wrap;
     margin-bottom: 1rem;
+}
+
+.modal .reward-title {
+    display: inline-flex;
 }
 
 .reward-availability {
