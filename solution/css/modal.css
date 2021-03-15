@@ -26,3 +26,21 @@
     justify-content: space-between;
     margin-bottom: 1rem;
 }
+
+.modal-success {
+    display: none;
+}
+
+.modal-img,
+.modal-body > *:only-child,
+.modal-header > *:only-child {
+    margin: 0 auto;
+}
+
+.modal-body > *:only-child {
+    display: flex;
+}
+
+.modal-img {
+    margin-bottom: 1.5rem;
+}

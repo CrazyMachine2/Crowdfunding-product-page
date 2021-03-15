@@ -212,6 +212,10 @@ main .container {
     cursor: pointer;
 }
 
+.modal .reward-card:hover .reward-title {
+    color: var(--clr-primary-400);
+}
+
 .reward-card {
     position: relative;
     padding: 1.5rem;
@@ -245,6 +249,11 @@ main .container {
 
 .modal .reward-title {
     display: inline-flex;
+    transition: color .1s;
+}
+
+.modal .reward-title:hover {
+    color: var(--clr-primary-400);
 }
 
 .reward-availability {

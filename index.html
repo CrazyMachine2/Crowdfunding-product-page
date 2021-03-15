@@ -140,7 +140,6 @@
   </main>
 
   <div id="modal" class="modal">
-
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title">Back this project</h2>
@@ -154,14 +153,14 @@
         </p>
       </div>
       <div class="modal-body">
-        
+
         <div class="reward-card">
           <div class="reward-header-wrapper">
             <input id="first-checkbox" type="checkbox">
             <label for="first-checkbox" class="custom-checkbox"></label>
             <div class="reward-header mb-0">
-          </div>
-            <h4 class="reward-title"> Pledge with no reward</h4>
+            </div>
+            <h4 class="reward-title">Pledge with no reward</h4>
           </div>
           <p class="reward-description">
             Choose to support us without a reward if you simply believe in our project. As a backer,
@@ -170,18 +169,18 @@
 
           <div class="add-pledge-section">
             <hr>
-            <form action="post">
+            <form method="post">
               <div class="pledge-form-content-wrapper">
                 <div class="enter-pledge">Enter your pledge</div>
                 <div class="form-group">
                   <input type="number" class="form-control" name="pledge-number">
-                  <button class="btn btn-primary">Continue</button>
+                  <button type="button" class="btn btn-primary submit">Continue</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        
+
         <div class="reward-card">
           <div class="reward-header-wrapper">
             <input id="second-checkbox" type="checkbox" class="custom-checkbox">
@@ -201,18 +200,18 @@
 
           <div class="add-pledge-section">
             <hr>
-            <form action="post">
+            <form method="post">
               <div class="pledge-form-content-wrapper">
                 <div class="enter-pledge">Enter your pledge</div>
                 <div class="form-group">
-                  <input type="number" class="form-control" name="pledge-number">
-                  <button class="btn btn-primary">Continue</button>
+                  <input type="number" min="25" class="form-control" name="pledge-number">
+                  <button type="button" class="btn btn-primary submit">Continue</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        
+
         <div class="reward-card">
           <div class="reward-header-wrapper">
             <input id="third-checkbox" type="checkbox" class="custom-checkbox">
@@ -232,18 +231,18 @@
 
           <div class="add-pledge-section">
             <hr>
-            <form action="post">
+            <form method="post">
               <div class="pledge-form-content-wrapper">
                 <div class="enter-pledge">Enter your pledge</div>
                 <div class="form-group">
-                  <input type="number" class="form-control" name="pledge-number">
-                  <button class="btn btn-primary">Continue</button>
+                  <input type="number" class="form-control" min="75" name="pledge-number">
+                  <button type="button" class="btn btn-primary submit">Continue</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        
+
         <div class="reward-card out-of-stock">
           <div class="reward-header-wrapper">
             <input id="forth-checkbox" type="checkbox" class="custom-checkbox">
@@ -263,6 +262,22 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="modal-success" class="modal modal-success">
+
+    <div class="modal-content">
+      <img class="modal-img" src="../../images/icon-check.svg">
+      <div class="modal-header">
+        <h3>Thanks for your support</h3>
+      </div>
+      <div class="modal-description">
+        <p>Thanks for your support! Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed</p>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-primary open-modal">Got it!</button>
+      </div>
+    </div>
 
   </div>
 </body>
@@ -270,47 +285,3 @@
 <script type="module" src="./solution/js/index.js"></script>
 
 </html>
-
-<!-- Selection modal start -->
-
-<!-- Back this project
-
-101 left -->
-
-<!-- Selected pledge start -->
-<!-- Enter your pledge
-$25
-Continue -->
-<!-- Selected pledge end -->
-
-<!-- 
-
-64 left -->
-
-<!-- Selected pledge start -->
-<!-- Enter your pledge
-$75
-Continue -->
-<!-- Selected pledge end -->
-
-<!-- 
-
-
-0 left -->
-
-<!-- Selected pledge  start -->
-<!-- Enter your pledge
-$200
-Continue -->
-<!-- Selected pledge end -->
-
-<!-- Selection modal end -->
-
-<!-- Success modal start -->
-
-<!-- Thanks for your support!
-Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-an email once our campaign is completed.
-Got it! -->
-
-<!-- Success modal end  -->

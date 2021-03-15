@@ -1,33 +1,38 @@
 export const modal = () => {
-
     const modal = document.getElementById("modal");
     const closeBtn = document.querySelector(".close-btn-wrapper");
-    const buttons = document.querySelectorAll(".open-modal");
-    
-    // const selectAwardButtons = document.querySelectorAll(".select-award");
-    // selectAwardButtons.forEach(sb => sb.addEventListener("click", handleSelectAward));
-
-    const customCheckbox = modal.querySelectorAll("label");
-    customCheckbox.forEach(cb => cb.addEventListener("click", handleCheckboxSwitch))
+    const openModalButtons = document.querySelectorAll(".open-modal");
+    const rewardCards = modal.querySelectorAll(".modal .reward-card");
+    const selectAwardButtons = document.querySelectorAll(".select-award");
+    const submitButtons = document.querySelectorAll(".modal .submit");
 
     // Closing modal
-    closeBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener("click", handleCloseModal);
     window.addEventListener("click", function (ev) {
         if (ev.target == modal) {
-            closeModal();
+            handleCloseModal();
         }
     });
 
     // Open modal
-    buttons.forEach(btn => btn.addEventListener("click", openModal));
+    openModalButtons.forEach(btn => btn.addEventListener("click", handleOpenModal));
 
-    // Helper functions
-    function openModal() {
+    // Handle checkboxs switch in opened modal
+    rewardCards.forEach(cb => cb.addEventListener("click", handleCheckboxSwitch))
+
+    // Handle select reward on page product page
+    selectAwardButtons.forEach(sb => sb.addEventListener("click", handleSelectAward));
+
+    // Handle submit buttons
+    submitButtons.forEach(sb => sb.addEventListener("click", handleSubmit));
+
+    // Handlers
+    function handleOpenModal() {
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     }
 
-    function closeModal() {
+    function handleCloseModal() {
         resetModalState();
         modal.style.display = "none";
         document.body.style.overflow = "auto";
@@ -36,18 +41,21 @@ export const modal = () => {
     function handleSelectAward(ev) {
         const title = ev.target.parentElement.parentElement.querySelector(".reward-title").innerHTML;
         const rewardCard = [...document.querySelector(".modal").querySelectorAll(".reward-card")]
-        .filter(rc =>{
-            const searchedTitle = rc.querySelector(".reward-title").innerHTML;
-            return searchedTitle.trim() === title.trim();
-        })[0];
+            .filter(rc => {
+                const searchedTitle = rc.querySelector(".reward-title").innerHTML;
+                return searchedTitle.trim() === title.trim();
+            })[0];
 
-        handleCheckboxSwitch({target: rewardCard.querySelector("label")});
+        handleCheckboxSwitch({ target: rewardCard.querySelector("label") });
     }
 
     function handleCheckboxSwitch(ev) {
-        const targetCheckbox = ev.target.previousElementSibling;
+        if (ev.target.parentElement.classList.contains("form-group")) {
+            return;
+        }
 
-        const rewardCard = ev.target.parentElement.parentElement;
+        const rewardCard = findParentElementByClassName(ev.target, "reward-card");
+        const targetCheckbox = rewardCard.querySelector("input[type=checkbox]");
         const pledgeArea = rewardCard.querySelector(".add-pledge-section");
 
         if (targetCheckbox.checked) {
@@ -64,26 +72,32 @@ export const modal = () => {
         targetCheckbox.click();
     }
 
+    function handleSubmit(ev) {
+        ev.preventDefault();
+
+    }
+
+    // Helper functions
     function findParentElementByClassName(el, className) {
-        if(el.classList.contains(className)){
+        if (el.classList.contains(className)) {
             return el;
         }
 
-        findParentElementByClassName(ev.parentElement, className);
+        return findParentElementByClassName(el.parentElement, className);
     }
 
     function resetModalState() {
         document.getElementById("modal")
-        .querySelectorAll("input[type=checkbox]")
-        .forEach(cb => cb.checked = false);
+            .querySelectorAll("input[type=checkbox]")
+            .forEach(cb => cb.checked = false);
 
         document
-        .querySelectorAll(".modal .reward-card")
-        .forEach(rc => rc.style.border = ".75px solid var(--clr-neutral-200)");
+            .querySelectorAll(".modal .reward-card")
+            .forEach(rc => rc.style.border = ".75px solid var(--clr-neutral-200)");
 
         document
-        .querySelectorAll(".modal .add-pledge-section")
-        .forEach(ps => ps.style.display = "none");
+            .querySelectorAll(".modal .add-pledge-section")
+            .forEach(ps => ps.style.display = "none");
     }
 }
 
