@@ -14,7 +14,7 @@
 
 .modal-content {
     padding: 2.5rem 2rem;
-    margin: 10% auto;
+    margin: 1.25rem auto;
     width: min(90%, 45rem);
     background-color: var(--clr-neutral-100);
     border-radius: 10px;

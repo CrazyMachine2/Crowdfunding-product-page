@@ -1,3 +1,49 @@
+input {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--clr-neutral-200);
+    border-radius: 99vh;
+    position: relative;
+    outline: none;
+    min-width: 2rem;
+    max-width: 7em;
+}
+
+input[type=number] {
+    font-weight: var(--fw-bold);
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
 .custom-checkbox {
     display: inline;
 }
+
+.custom-checkbox {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--clr-neutral-200);
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--clr-primary-400);
+}
+

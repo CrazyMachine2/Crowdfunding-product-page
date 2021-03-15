@@ -1,3 +1,4 @@
+import { modal } from "./modal.js";
 
 main();
 
@@ -27,31 +28,6 @@ function bookmark() {
         }
 
         button.prepend(bookmarkImg);
-    })
-}
-
-function modal() {
-    const modal = document.getElementById("modal");
-    const closeBtn = document.querySelector(".close-btn-wrapper");
-    const buttons = document.querySelectorAll(".open-modal");
-
-    closeBtn.addEventListener("click", function (ev) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    });
-
-    window.addEventListener("click", function (ev) {
-        if (ev.target == modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    });
-
-    buttons.forEach(btn => {
-        btn.addEventListener("click", function(){
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        })
     })
 }
 
