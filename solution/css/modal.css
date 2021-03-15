@@ -31,6 +31,14 @@
     display: none;
 }
 
+.modal-success .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 25rem);
+}
+
 .modal-img,
 .modal-body > *:only-child,
 .modal-header > *:only-child {

@@ -1,17 +1,23 @@
 export const modal = () => {
-    const modal = document.getElementById("modal");
+    // Variables
+    const modals = document.querySelectorAll(".modal");
     const closeBtn = document.querySelector(".close-btn-wrapper");
     const openModalButtons = document.querySelectorAll(".open-modal");
-    const rewardCards = modal.querySelectorAll(".modal .reward-card");
+    const rewardCards = modals[0].querySelectorAll(".modal .reward-card");
     const selectAwardButtons = document.querySelectorAll(".select-award");
     const submitButtons = document.querySelectorAll(".modal .submit");
 
+    const gotItBtn = document.querySelector(".close-modal");
+    console.log(gotItBtn);
     // Closing modal
+    gotItBtn.addEventListener("click", handleCloseModal);
     closeBtn.addEventListener("click", handleCloseModal);
     window.addEventListener("click", function (ev) {
-        if (ev.target == modal) {
-            handleCloseModal();
-        }
+        modals.forEach(modal => {
+            if (ev.target == modal) {
+                handleCloseModal();
+            }
+        });
     });
 
     // Open modal
@@ -28,13 +34,13 @@ export const modal = () => {
 
     // Handlers
     function handleOpenModal() {
-        modal.style.display = "block";
+        modals[0].style.display = "block";
         document.body.style.overflow = "hidden";
     }
 
     function handleCloseModal() {
         resetModalState();
-        modal.style.display = "none";
+        modals.forEach(modal => modal.style.display = "none");
         document.body.style.overflow = "auto";
     }
 
@@ -74,7 +80,8 @@ export const modal = () => {
 
     function handleSubmit(ev) {
         ev.preventDefault();
-
+        modals[0].style.display = "none";
+        modals[1].style.display = "block";
     }
 
     // Helper functions
