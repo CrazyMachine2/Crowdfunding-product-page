@@ -5,7 +5,7 @@ export const modal = () => {
     const openModalButtons = document.querySelectorAll(".open-modal");
     const rewardCards = modals[0].querySelectorAll(".modal .reward-card");
     const selectAwardButtons = document.querySelectorAll(".select-award");
-    const submitButtons = document.querySelectorAll(".modal .submit");
+    const forms = document.querySelectorAll("form");
 
     const gotItBtn = document.querySelector(".close-modal");
     console.log(gotItBtn);
@@ -30,7 +30,7 @@ export const modal = () => {
     selectAwardButtons.forEach(sb => sb.addEventListener("click", handleSelectAward));
 
     // Handle submit buttons
-    submitButtons.forEach(sb => sb.addEventListener("click", handleSubmit));
+    forms.forEach(sb => sb.addEventListener("submit", handleSubmit));
 
     // Handlers
     function handleOpenModal() {
@@ -79,9 +79,9 @@ export const modal = () => {
     }
 
     function handleSubmit(ev) {
-        ev.preventDefault();
         modals[0].style.display = "none";
         modals[1].style.display = "block";
+        ev.preventDefault();
     }
 
     // Helper functions
