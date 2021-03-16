@@ -94,8 +94,8 @@ export const modal = () => {
     }
 
     function resetModalState() {
-        document.getElementById("modal")
-            .querySelectorAll("input[type=checkbox]")
+        document
+            .querySelectorAll(".modal input[type=checkbox]")
             .forEach(cb => cb.checked = false);
 
         document
@@ -105,6 +105,10 @@ export const modal = () => {
         document
             .querySelectorAll(".modal .add-pledge-section")
             .forEach(ps => ps.style.display = "none");
+
+        document
+            .querySelectorAll("input[type=number]")
+            .forEach(inp => inp.value = "");
     }
 }
 

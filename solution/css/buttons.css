@@ -70,11 +70,12 @@
 }
 
 @media(min-width: 600px){
+
     .btn-with-image {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 1.5rem 0 0;
+        padding: 0 1.5rem 0 0 !important;
     }
 
     .btn-with-image .btn-text {
