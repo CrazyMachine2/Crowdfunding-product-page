@@ -56,7 +56,7 @@ export const modal = () => {
     }
 
     function handleCheckboxSwitch(ev) {
-        if (ev.target.parentElement.classList.contains("form-group")) {
+        if (ev.target.parentElement.classList.contains("form-group") || ev.target.parentElement.classList.contains("input-icon")) {
             return;
         }
 

@@ -5,12 +5,35 @@ input {
     border-radius: 99vh;
     position: relative;
     outline: none;
-    min-width: 2rem;
+    width: 100%;
+    min-width: 4rem;
     max-width: 7em;
 }
 
-input[type=number] {
+input[type="number"] {
     font-weight: var(--fw-bold);
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon > i {
+    position: absolute;
+    margin-right: .5rem;
+    display: block;
+    transform: translate(0, -45%);
+    top: 45%;
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    font-style: normal;
+    color: var(--clr-neutral-200);
+    z-index: 2;
+}
+
+.input-icon > input {
+    padding-left: 1.2rem;
 }
 
 .form-group {
@@ -29,6 +52,7 @@ input[type="checkbox"] {
 
 .custom-checkbox {
     position: relative;
+    min-width: 20px;
     width: 20px;
     height: 20px;
     border: 1.5px solid var(--clr-neutral-200);
@@ -43,7 +67,6 @@ input[type="checkbox"]:checked ~ .custom-checkbox::after {
     border-radius: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: var(--clr-primary-400);
 }
-
