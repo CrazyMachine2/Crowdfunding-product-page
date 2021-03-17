@@ -1,4 +1,4 @@
-export const modal = () => {
+export const initModalHandlers = () => {
     // Variables
     const modals = document.querySelectorAll(".modal");
     const closeBtn = document.querySelector(".close-btn-wrapper");
