@@ -5,7 +5,7 @@ export const initModalHandlers = () => {
     const openModalButtons = document.querySelectorAll(".open-modal");
     const rewardCards = modals[0].querySelectorAll(".modal .reward-card");
     const selectAwardButtons = document.querySelectorAll(".select-award");
-    const submitButtons = document.querySelectorAll(".modal .submit");
+    const forms = document.querySelectorAll("form");
 
     const gotItBtn = document.querySelector(".close-modal");
 
@@ -30,7 +30,7 @@ export const initModalHandlers = () => {
     selectAwardButtons.forEach(sb => sb.addEventListener("click", handleSelectAward));
 
     // Handle submit buttons
-    submitButtons.forEach(sb => sb.addEventListener("click", handleSubmit));
+    forms.forEach(sb => sb.addEventListener("submit", handleSubmit));
 
     // Handlers
     function handleOpenModal() {
@@ -56,7 +56,7 @@ export const initModalHandlers = () => {
     }
 
     function handleCheckboxSwitch(ev) {
-        if (ev.target.parentElement.classList.contains("form-group")) {
+        if (ev.target.parentElement.classList.contains("form-group") || ev.target.parentElement.classList.contains("input-icon")) {
             return;
         }
 
@@ -79,9 +79,9 @@ export const initModalHandlers = () => {
     }
 
     function handleSubmit(ev) {
-        ev.preventDefault();
         modals[0].style.display = "none";
         modals[1].style.display = "block";
+        ev.preventDefault();
     }
 
     // Helper functions
@@ -94,8 +94,8 @@ export const initModalHandlers = () => {
     }
 
     function resetModalState() {
-        document.getElementById("modal")
-            .querySelectorAll("input[type=checkbox]")
+        document
+            .querySelectorAll(".modal input[type=checkbox]")
             .forEach(cb => cb.checked = false);
 
         document
@@ -105,6 +105,10 @@ export const initModalHandlers = () => {
         document
             .querySelectorAll(".modal .add-pledge-section")
             .forEach(ps => ps.style.display = "none");
+
+        document
+            .querySelectorAll("input[type=number]")
+            .forEach(inp => inp.value = "");
     }
 }
 
