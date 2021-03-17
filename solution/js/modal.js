@@ -8,7 +8,7 @@ export const modal = () => {
     const submitButtons = document.querySelectorAll(".modal .submit");
 
     const gotItBtn = document.querySelector(".close-modal");
-    console.log(gotItBtn);
+
     // Closing modal
     gotItBtn.addEventListener("click", handleCloseModal);
     closeBtn.addEventListener("click", handleCloseModal);
