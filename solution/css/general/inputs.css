@@ -22,8 +22,8 @@ input[type="number"] {
     position: absolute;
     margin-right: .5rem;
     display: block;
-    transform: translate(0, -45%);
-    top: 45%;
+    transform: translate(0, -43%);
+    top: 43%;
     pointer-events: none;
     width: 25px;
     text-align: center;
@@ -42,6 +42,7 @@ input[type="number"] {
     gap: 1rem;
 }
 
+/* Checkbox */
 input[type="checkbox"] {
     display: none;
 }
