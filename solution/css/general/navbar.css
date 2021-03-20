@@ -23,7 +23,7 @@ header {
     padding: 1.5rem;
     top: 3rem;
     right: 0;
-    border-radius: 10px;
+    border-radius: var(--domain-border-radius);
     width: 100%;
     transform: scale(1, 0);
     background-color: var(--clr-neutral-100);

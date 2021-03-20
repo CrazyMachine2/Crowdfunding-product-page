@@ -35,7 +35,7 @@
 .progress-bar:after {
     content: '';
     position: absolute;
-    width: 76%;
+    width: var(--progress-bar-width);
     height: 12px;
     border-radius: 99vh;
     background-color: var(--clr-primary-400);

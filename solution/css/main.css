@@ -37,6 +37,9 @@
     --line-height-small: 1.15;
     --line-height-regular: 1.6;
     --line-height-large: 2;
+
+    --progress-bar-width: 76%;
+    --domain-border-radius: 10px;
 }
 
 

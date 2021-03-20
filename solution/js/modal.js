@@ -79,9 +79,12 @@ export const initModalHandlers = () => {
     }
 
     function handleSubmit(ev) {
+        ev.preventDefault();
+
         modals[0].style.display = "none";
         modals[1].style.display = "block";
-        ev.preventDefault();
+
+        updateUI(ev);
     }
 
     // Helper functions
@@ -109,6 +112,59 @@ export const initModalHandlers = () => {
         document
             .querySelectorAll("input[type=number]")
             .forEach(inp => inp.value = "");
+    }
+
+    function updateUI(ev) {
+        const inputValue = parseInt(ev.target.querySelector("input").value);
+        const totalBackers = document.querySelector(".total-backers");
+        const progressBar = document.querySelector(".progress-bar");
+        const currentCount = document.querySelector(".current-backed");
+        const totalCount = parseInt(document.querySelector(".total-count").textContent
+        .substr(1)
+        .match(/\d+,\d+/)[0]
+        .replace(/,/g, ''));
+
+        // Handle total new current backed count
+        const newTotalCount = parseInt(currentCount.textContent.substr(1).replace(/,/g, '')) + inputValue;
+        currentCount.textContent = Intl.NumberFormat("en-US",
+            {
+                style: "currency",
+                currency: "USD",
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(newTotalCount);
+
+
+        // Handle total backers count
+        const newTotalBackers = parseInt(totalBackers.textContent.replace(/,/g, '')) + 1;
+        totalBackers.textContent = Intl.NumberFormat("en-US").format(newTotalBackers);
+        
+        // Handle progress bar increase
+        const totalPercent = newTotalCount / totalCount * 100;
+        if(totalPercent <= 100) {
+            progressBar.style.setProperty("--progress-bar-width", `${totalPercent}%`);
+        } else {
+            progressBar.style.setProperty("--progress-bar-width", `100%`);
+        }
+
+        // Hanlde rewards left count
+        const rewardCardDataAttr = ev.target.parentElement.parentElement.getAttribute("data");
+
+        if(!rewardCardDataAttr) {
+            return;
+        }
+
+        const rewardsLeftMain = document.querySelector(`.reward-card[data=${rewardCardDataAttr}] .left`);
+        const rewardsLeftModal = document.querySelector(`.modal .reward-card[data=${rewardCardDataAttr}] .left`);
+
+        rewardsLeftMain.childNodes[0].textContent = String(`${parseInt(rewardsLeftMain.childNodes[0].textContent) - 1} `);
+        rewardsLeftModal.childNodes[0].textContent = String(`${parseInt(rewardsLeftModal.childNodes[0].textContent) - 1} `);
+
+        var updatedLeft = parseInt(rewardsLeftMain.childNodes[0].textContent);
+        if(updatedLeft <= 0 ) {
+            document.querySelector(`.reward-card[data=${rewardCardDataAttr}]`).classList.add("out-of-stock");
+            document.querySelector(`.modal .reward-card[data=${rewardCardDataAttr}]`).classList.add("out-of-stock");
+        }
     }
 }
 
